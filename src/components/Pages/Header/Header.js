@@ -18,7 +18,7 @@ const Header = () => {
     //         })
     // }
     return (
-        <div className="bg-violet-500 sticky top-0 z-50">
+        <div className="bg-sky-600 sticky top-0 z-50 py-2">
             <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <NavLink
