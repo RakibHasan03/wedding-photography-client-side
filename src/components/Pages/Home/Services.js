@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SingleService from './SingleService';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Services = ({ threeServices }) => {
     return (
@@ -15,9 +16,9 @@ const Services = ({ threeServices }) => {
                     ></SingleService>)
                 }
             </div>
-            <div className='text-center '>
+            <div className='flex justify-center'>
                 <Link to='/services'>
-                    <button className='px-4 py-3 text-white rounded-md gradient-button'> All services</button>
+                    <button className='px-6 py-3 text-white rounded-md gradient-button flex items-center'> <p>Sell All</p> <p className='ml-3'> <FaArrowRight/></p>  </button>
                 </Link>
             </div>
         </div>

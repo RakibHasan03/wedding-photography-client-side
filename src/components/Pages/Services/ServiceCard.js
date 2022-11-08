@@ -1,15 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import './SingleService.css'
+import { Link } from 'react-router-dom';
 
-const SingleService = ({ service }) => {
-    // console.log(service)
-
+const ServiceCard = ({ service }) => {
+    window.scrollTo(0, 0);
+    
     const { name, img, description, price, rating, _id } = service
     return (
         <div>
-            <div className="lg:w-11/12  h-[29rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
+            <div className="lg:w-11/12  h-[28rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
 
                 <div>
                     <img className="p-4 rounded-lg h-56 w-full" src={img} alt="" />
@@ -25,7 +24,7 @@ const SingleService = ({ service }) => {
                             <FaStar className='text-yellow-400' />
                             <FaStarHalfAlt className='text-yellow-400' />
                         </span>
-                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{rating}</span>
+                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{rating}</span>
                     </div>
                     <div className='mb-3'>
                         <p>{description.length > 100 ? description.slice(0, 100) + '...' : description} </p>
@@ -40,4 +39,4 @@ const SingleService = ({ service }) => {
     );
 };
 
-export default SingleService;
+export default ServiceCard;

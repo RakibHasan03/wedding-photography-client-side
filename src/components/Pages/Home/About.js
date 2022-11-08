@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -12,14 +13,16 @@ const About = () => {
                 </div>
 
                 <div className='w-11/12 mx-auto'>
-                    <h1 className='text-xl md:text-3xl font-semibold text-gray-700 '>Our exceptional Services, <br />
+                    <h1 className='text-xl md:text-3xl font-semibold text-gray-700 '>My exceptional Services, <br />
                         & Customer Satisfiction</h1>
                     
                     <p className='mt-10'>We Believe In our quality & services.We are Always ready for your calling,, Just Hire us for making your day Memoriable</p>
 
                     <div className='mt-10'>
-                        <button className='gradient-button px-5 py-2.5 rounded-md text-white'>Our Blog</button>
+                        <Link to='/blog'>
+                            <button className='gradient-button px-5 py-2.5 rounded-md text-white'>My Blog</button>
 
+                        </Link>
                     </div>
                     
 
