@@ -1,22 +1,21 @@
-import React, {  useState } from 'react';
+import React, {  useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// import navLogo from '../../Images/nav-logo.png'
-// import { AuthContext } from '../../UserContext/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Header = () => {
-    const user ={}
+    
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // const { user, logOut } = useContext(AuthContext)
-    // const logOutHandler = () => {
-    //     logOut()
-    //         .then(() => {
-    //             console.log('log out successFully')
-    //         })
-    //         .catch(() => {
+    const { user, logOut } = useContext(AuthContext)
+    const logOutHandler = () => {
+        logOut()
+            .then(() => {
+                console.log('log out successFully')
+            })
+            .catch(() => {
 
-    //         })
-    // }
+            })
+    }
     return (
         <div className="bg-sky-600 sticky top-0 z-50 py-2">
             <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -29,7 +28,7 @@ const Header = () => {
                     >
                         <img src={""} className='w-12' alt="" />
                         <span className="ml-2 text-md md:text-lg  tracking-wide text-gray-100 hover:text-blue-900">
-                          Weeding Photography
+                          Wedding Photography
                         </span>
                     </NavLink>
                     <ul className="flex items-center hidden space-x-6 lg:flex">
@@ -77,7 +76,7 @@ const Header = () => {
                             user?.uid ?
                                 <>
                                     <li>
-                                        <button onClick={""}
+                                        <button onClick={logOutHandler}
                                             className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"> Log Out</button>
                                     </li>
                                 </>

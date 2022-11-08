@@ -1,0 +1,11 @@
+
+
+.sign-button {
+
+    background-image: linear-gradient(90deg, rgb(11, 11, 221), rgb(23, 202, 92));
+
+}
+
+.sign-button:hover {
+    background-image: linear-gradient(90deg, rgb(61, 211, 98), rgb(36, 36, 182));
+}

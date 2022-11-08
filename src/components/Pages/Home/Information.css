@@ -1,0 +1,17 @@
+.bg-contact{
+    background-image: url('https://images.pexels.com/photos/5788421/pexels-photo-5788421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bg-contact-2{
+    background-image: linear-gradient(90deg,rgba(0, 199, 76, 0.123), rgba(0, 187, 255, 0.192)
+    );
+}
+
+
+.bg-simple{
+    background-color: rgba(0, 0, 0, 0.556);
+}

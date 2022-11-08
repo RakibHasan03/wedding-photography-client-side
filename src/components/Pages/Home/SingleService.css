@@ -1,0 +1,10 @@
+.gradient-button{
+
+ background-image: linear-gradient(90deg,rgb(17, 131, 207), rgb(134, 151, 140));
+  
+}
+
+.gradient-button:hover {
+    background-image: linear-gradient(90deg, rgb(61, 211, 98),rgb(36, 36, 182));
+}
+

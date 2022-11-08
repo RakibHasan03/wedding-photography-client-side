@@ -75,7 +75,7 @@ const Register = () => {
             <div>
                 <div className='w-11/12 mx-auto' data-aos="fade-down" data-aos-duration='2000'>
                     <div className='flex justify-center'>
-                        <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-indigo-500 dark:text-gray-100">
+                        <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-sky-600 dark:text-gray-100">
                             <h1 className="text-2xl font-bold text-center">Register</h1>
                             <form onSubmit={registerHandler} className="space-y-6 ng-untouched ng-pristine ng-valid">
                                 <div className="space-y-1 text-sm">
@@ -94,19 +94,19 @@ const Register = () => {
                                     <label htmlFor="password" className="block text-white">Password</label>
                                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 bg-white dark:text-gray-700 focus:outline-none" />
                                     <div className="flex justify-center text-xs text-red-800" required>
-                                        <p className='text-md mt-1'>{error.slice(9,error.length -21)}</p>
+                                        <p className='text-md mt-1'>{error}</p>
                                     </div>
                                 </div>
                              
                                 <button
                                  // disabled={!accepted}
-                                    className="block shadow-md w-full p-3 text-center rounded-sm dark:text-gray-900 bg-white hover:bg-violet-300 disabled:bg-gray-600 hover:disabled:text-white">Register</button>
+                                    className="block  shadow-md w-full p-3 text-center rounded-lg hover:disabled:text-white sign-button">Register</button>
                             </form>
 
 
                             <div className="flex items-center pt-4 space-x-1">
                                 <p className="text-xs text-center sm:px-6 text-white">Already have an account?
-                                    <Link to='/login' className="underline ml-3 text-blue-800">Log In</Link>
+                                    <Link to='/login' className="underline ml-3 text-blue-900 text-lg">Log In</Link>
                                 </p>
                             </div>
 
