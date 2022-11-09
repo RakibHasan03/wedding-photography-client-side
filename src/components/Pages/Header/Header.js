@@ -2,6 +2,7 @@ import React, {  useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider';
+import navLogo from '../../../Asset/Images/wedding-photography.png'
 
 const Header = () => {
     
@@ -17,7 +18,7 @@ const Header = () => {
             })
     }
     return (
-        <div className="bg-sky-600 sticky top-0 z-50 py-2">
+        <div className="bg-sky-600 sticky top-0 z-50 py-1">
             <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <NavLink
@@ -26,8 +27,8 @@ const Header = () => {
                         title="Learn With Programming"
                         className="inline-flex items-center"
                     >
-                        <img src={""} className='w-12' alt="" />
-                        <span className="ml-2 text-md md:text-lg  tracking-wide text-gray-100 hover:text-blue-900">
+                        <img src={navLogo} className='w-12 h-10' alt="" />
+                        <span className="ml-4 text-md md:text-lg  tracking-wide text-gray-100 hover:text-blue-900">
                           Wedding Photography
                         </span>
                     </NavLink>
@@ -52,16 +53,8 @@ const Header = () => {
                                 Services
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                to='/myReview'
-                                aria-label="myReview"
-                                title="myReview"
-                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
-                            >
-                              My Review
-                            </NavLink>
-                        </li>
+                     
+                    
                         <li>
                             <NavLink
                                 to='/blog'
@@ -75,6 +68,27 @@ const Header = () => {
                         {
                             user?.uid ?
                                 <>
+                                    
+                                    <li>
+                                        <NavLink
+                                            to='/addService'
+                                            aria-label="addService"
+                                            title="addService"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
+                                        >
+                                            Add Service
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to='/myReview'
+                                            aria-label="myReview"
+                                            title="myReview"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
+                                        >
+                                            My Review
+                                        </NavLink>
+                                    </li>
                                     <li>
                                         <button onClick={logOutHandler}
                                             className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"> Log Out</button>

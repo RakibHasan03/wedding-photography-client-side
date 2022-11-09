@@ -1,11 +1,14 @@
+import AddService from "../../components/Pages/AddService/AddService";
 import Blog from "../../components/Pages/Blog/Blog";
 import DetailsPage from "../../components/Pages/DetailsPage/DetailsPage";
+import ReviewFrom from "../../components/Pages/DetailsPage/ReviewFrom";
 import Home from "../../components/Pages/Home/Home";
 import Login from "../../components/Pages/Login/Login";
 import MyReview from "../../components/Pages/MyReview/MyReview";
 import Register from "../../components/Pages/Register/Register";
 import Services from "../../components/Pages/Services/Services";
 import Main from "../../Layout/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -32,6 +35,10 @@ const { createBrowserRouter } = require("react-router-dom");
                  element:<DetailsPage></DetailsPage>
              },
              {
+                 path: '/addService',
+                 element: <AddService></AddService>
+             },
+             {
                  path: '/myReview',
                  element:<MyReview></MyReview>
              },
@@ -46,7 +53,12 @@ const { createBrowserRouter } = require("react-router-dom");
              {
                  path: '/register',
                  element:<Register></Register>
-             }
+             },
+            //  {
+            //      path: '/review',
+            //      element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>
+                 
+            //  }
         ]
         
     }

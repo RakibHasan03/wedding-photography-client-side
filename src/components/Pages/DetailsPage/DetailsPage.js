@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider';
+import Review from './Review';
 
 const DetailsPage = () => {
+    // window.scrollTo(0, 0);
+
     const service = useLoaderData();
     const { user } = useContext(AuthContext)
     console.log(user?.email, user?.displayName
@@ -20,8 +23,8 @@ const DetailsPage = () => {
                     <h1 className='text-sky-600 text-2xl'>{name}</h1>
                     <p className='mt-5 text-sm text-gray-600'>{description}</p>
                     
-                    <div className='mt-5 flex items-center gap-14'>
-                        <p className='text-white px-2 py-.5 rounded-md font-semibold bg-sky-500'>
+                    <div className='mt-5 flex items-center gap-10'>
+                        <p className='text-white px-2 py-.5 rounded-md font-semibold bg-orange-500'>
                             {rating}
                         </p>
                         <p className='flex text-orange-500 '>
@@ -46,6 +49,7 @@ const DetailsPage = () => {
                
 
             </div>
+            <Review service={service}></Review>
         </div>
     );
 };

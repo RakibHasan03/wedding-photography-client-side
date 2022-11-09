@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Lottie from 'lottie-react'
 import reader from '../../../Asset/Images/107800-login-leady.json'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import './Login.css'
@@ -10,9 +10,11 @@ import './Login.css'
 const Login = () => {
 
     const [error, setError] = useState("")
-
     const { signIn, providerLogin } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const loginHandler = (event) => {
         event.preventDefault();
@@ -26,6 +28,7 @@ const Login = () => {
                 console.log(user)
                 form.reset()
                 setError('')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
@@ -38,7 +41,7 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 setError('')
-                // navigate(from, { replace: true })
+                 navigate(from, { replace: true })
             })
             .then(error => {
                 // console.error(error.message)

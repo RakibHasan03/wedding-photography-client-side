@@ -8,10 +8,10 @@ const ServiceCard = ({ service }) => {
     const { name, img, description, price, rating, _id } = service
     return (
         <div>
-            <div className="lg:w-11/12  h-[28rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
+            <div className="lg:w-11/12  h-[30rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
 
-                <div>
-                    <img className="p-4 rounded-lg h-56 w-full" src={img} alt="" />
+                <div className='p-4'>
+                    <img className=" rounded-lg h-56 w-full" src={img} alt="" />
                 </div>
 
                 <div className="px-5 pb-5">

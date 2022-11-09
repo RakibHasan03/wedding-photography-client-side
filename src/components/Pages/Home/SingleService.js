@@ -9,10 +9,10 @@ const SingleService = ({ service }) => {
     const { name, img, description, price, rating, _id } = service
     return (
         <div>
-            <div className="lg:w-11/12  h-[29rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
+            <div className="lg:w-11/12  h-[30rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
 
-                <div>
-                    <img className="p-4 rounded-lg h-56 w-full" src={img} alt="" />
+                <div className='p-4'>
+                    <img className=" rounded-lg h-56 w-full" src={img} alt="" />
                 </div>
 
                 <div className="px-5 pb-5">
@@ -25,7 +25,7 @@ const SingleService = ({ service }) => {
                             <FaStar className='text-yellow-400' />
                             <FaStarHalfAlt className='text-yellow-400' />
                         </span>
-                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{rating}</span>
+                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{rating}</span>
                     </div>
                     <div className='mb-3'>
                         <p>{description.length > 100 ? description.slice(0, 100) + '...' : description} </p>
