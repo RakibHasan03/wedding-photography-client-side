@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react'
 import reader from '../../../Asset/Images/38435-register.json'
 import { AuthContext } from '../../../Context/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register')
     const [error, setError] = useState("")
     const [accepted, setAccepted] = useState(false)
-    // const navigate = useNavigate()
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || '/';
+     const navigate = useNavigate()
+    
     const { createAccount, updateUserProfile } = useContext(AuthContext)
     const registerHandler = (event) => {
         event.preventDefault();
@@ -26,8 +27,8 @@ const Register = () => {
                 form.reset()
                 setError('')
                 handelUpdateProfile(name, photoURL)
-                // toast.success('You are SuccessFully Sign Up');
-                // navigate(from, { replace: true })
+                //  toast.success('You are SuccessFully Sign Up');
+                 navigate('/')
 
             })
             .catch(error => {

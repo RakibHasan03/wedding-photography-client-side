@@ -24,6 +24,11 @@ const { createBrowserRouter } = require("react-router-dom");
                  loader: () => fetch('http://localhost:5000/service'),
                  element:<Home></Home>
              },
+             {
+                 path: '/home',
+                 loader: () => fetch('http://localhost:5000/service'),
+                 element:<Home></Home>
+             },
             
              {
                  path: '/services',

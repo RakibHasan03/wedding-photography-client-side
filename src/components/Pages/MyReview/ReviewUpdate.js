@@ -48,11 +48,11 @@ const ReviewUpdate = () => {
     }
     return (
         <div>
-            <h1>Update:{serviceName}</h1>
+         
             <div>
                 
                 <div className='mt-5'>
-                    <h1 className='text-sky-600 text-2xl font-semibold text-center'>Update Your Review</h1>
+                    <h1 className='text-sky-600 text-2xl font-semibold text-center'>Update Your Review for {serviceName }</h1>
 
                     <form onSubmit={handelUpdateReview}  className="w-11/12 mx-auto">
                         <div className="flex flex-wrap -mx-3 mb-6">

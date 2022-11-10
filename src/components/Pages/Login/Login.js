@@ -5,10 +5,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import './Login.css'
+import useTitle from '../../../Hooks/useTitle';
+
 
 
 const Login = () => {
-
+    useTitle('Login');
     const [error, setError] = useState("")
     const { signIn, providerLogin } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
