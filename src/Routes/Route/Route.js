@@ -23,24 +23,24 @@ const { createBrowserRouter } = require("react-router-dom");
          children: [
              {
                  path: '/',
-                 loader: () => fetch('http://localhost:5000/service'),
+                 loader: () => fetch('https://server-site-alpha.vercel.app/service'),
                  element:<Home></Home>
              },
              {
                  path: '/home',
-                 loader: () => fetch('http://localhost:5000/service'),
+                 loader: () => fetch('https://server-site-alpha.vercel.app/service'),
                  element:<Home></Home>
              },
             
              {
                  path: '/services',
-                 loader: () => fetch('http://localhost:5000/services'),
+                 loader: () => fetch('https://server-site-alpha.vercel.app/services'),
                  element: <Services></Services>
                 
              },
              {
                  path: '/service/:id',
-                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                 loader: ({ params }) => fetch(`https://server-site-alpha.vercel.app/services/${params.id}`),
                  element:<DetailsPage></DetailsPage>
              },
              {
@@ -65,8 +65,8 @@ const { createBrowserRouter } = require("react-router-dom");
              },
              {
                  path: '/update/:id',
-                 loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`),
-                 element:<ReviewUpdate></ReviewUpdate>
+                 loader: ({ params }) => fetch(`https://server-site-alpha.vercel.app/myReview/${params.id}`),
+                 element: <PrivateRoute><ReviewUpdate></ReviewUpdate></PrivateRoute>
              },
 
              {

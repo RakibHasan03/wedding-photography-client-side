@@ -12,7 +12,7 @@ const AddService = () => {
         // form.reset()
         console.log(service)
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://server-site-alpha.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

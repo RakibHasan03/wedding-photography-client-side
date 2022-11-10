@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
 import MyReviewCard from './MyReviewCard';
@@ -9,7 +10,7 @@ const MyReview = () => {
     const { user, logOut } = useContext(AuthContext)
     const [myReviews, setMyReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`, {
+        fetch(`https://server-site-alpha.vercel.app/myReview?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('wedding-ph')}`
             }
@@ -27,7 +28,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://server-site-alpha.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -41,11 +42,30 @@ const MyReview = () => {
         }
     }
     return (
-        <div className='my-10'>
-            <h1 className='text-sky-700 text-center text-xl font-semibold'>
-                You have {myReviews.length} review <br />
-                
-            </h1>
+        <div className='my-10 min-h-screen'>
+            {
+                myReviews?.length <= 0 ? <>
+                    <h1 className='text-sky-700 text-center text-2xl font-semibold'>
+                        You Don't Have Review yet..!! <br />
+                        please go to details page and <br />
+                        Give a Review
+                        <div className='mt-5 text-center'>
+                            <Link to='/services'>
+                                <button className='gradient-button px-4 py-2 text-white rounded-md text-lg '> Go to Services</button>
+                            </Link>
+                            
+                        </div>
+
+                    </h1>
+                </>
+                    :
+                    <>
+                        <h1 className='text-sky-700 text-center text-xl font-semibold'>
+                            You have {myReviews.length} review
+
+                        </h1>
+                    </>
+          }
             {
                 myReviews.map(rev => <MyReviewCard
                     key={rev._id}

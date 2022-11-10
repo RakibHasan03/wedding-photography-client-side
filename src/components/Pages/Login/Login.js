@@ -13,7 +13,7 @@ import toast from 'react-hot-toast';
 const Login = () => {
     useTitle('Login');
     const [error, setError] = useState("")
-    const { signIn, providerLogin } = useContext(AuthContext)
+    const { signIn, providerLogin, loading } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate()
     const location = useLocation();
@@ -39,7 +39,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://server-site-alpha.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -79,7 +79,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://server-site-alpha.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -114,6 +114,19 @@ const Login = () => {
             <div>
 
                 <div className='w-11/12 mx-auto'>
+                    {
+                        () => {
+                            if (loading) {
+                                return (
+                                    <div className="flex items-center justify-center space-x-2">
+                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                                    </div>
+                                )
+                            }
+                        }
+                   }
                     <Lottie animationData={reader} loop={true} />
 
                 </div>

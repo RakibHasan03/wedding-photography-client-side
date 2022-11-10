@@ -29,7 +29,7 @@ const ReviewFrom = ({service}) => {
       
         // console.log(typeof(rating));
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://server-site-alpha.vercel.app/review', {
             method: "POST",
             headers: {
             "content-type": "application/json",

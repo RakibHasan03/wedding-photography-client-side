@@ -11,7 +11,7 @@ const AllReviews = ({ service }) => {
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(true)
     useEffect(() => {
-        const url = `http://localhost:5000/reviews?serviceName=${name}`;
+        const url = `https://server-site-alpha.vercel.app/reviews?serviceName=${name}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
