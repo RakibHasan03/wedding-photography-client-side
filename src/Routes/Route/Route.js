@@ -5,6 +5,7 @@ import ReviewFrom from "../../components/Pages/DetailsPage/ReviewFrom";
 import Home from "../../components/Pages/Home/Home";
 import Login from "../../components/Pages/Login/Login";
 import MyReview from "../../components/Pages/MyReview/MyReview";
+import ReviewUpdate from "../../components/Pages/MyReview/ReviewUpdate";
 import Register from "../../components/Pages/Register/Register";
 import Services from "../../components/Pages/Services/Services";
 import Main from "../../Layout/Main";
@@ -54,6 +55,11 @@ const { createBrowserRouter } = require("react-router-dom");
                  path: '/register',
                  element:<Register></Register>
              },
+             {
+                 path: '/update/:id',
+                 loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`),
+                 element:<ReviewUpdate></ReviewUpdate>
+             }
             //  {
             //      path: '/review',
             //      element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>

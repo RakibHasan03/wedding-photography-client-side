@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MyReviewCard = ({ review, handleDelete }) => {
     const { userName, userImg, message ,rating,_id} = review
@@ -26,15 +27,18 @@ const MyReviewCard = ({ review, handleDelete }) => {
                 <div className='flex items-center gap-8 text-white mt-5'>
                     <div >
 
-                        <button onClick={()=>handleDelete(_id)} className='bg-red-500 px-5 py-2 rounded-md'>
+                        <button onClick={()=>handleDelete(_id)} className='bg-red-500 hover:bg-red-800 px-5 py-2 rounded-md'>
                             Delete
                         </button>
 
                     </div>
                     <div>
-                        <button className='bg-blue-500  px-5 py-2 rounded-md'>
-                            Update
-                        </button>
+                        <Link to={`/update/${_id}`}>
+                            <button className='bg-blue-500  hover:bg-blue-800 px-5 py-2 rounded-md'>
+                                Update
+                            </button>
+                            
+                        </Link>
                     </div>
                 </div>
 

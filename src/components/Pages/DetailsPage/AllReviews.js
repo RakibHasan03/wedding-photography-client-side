@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-import Review from './Review';
 import ReviewCard from './ReviewCard';
 import ReviewFrom from './ReviewFrom';
 
