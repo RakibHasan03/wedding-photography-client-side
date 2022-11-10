@@ -1,5 +1,6 @@
 import AddService from "../../components/Pages/AddService/AddService";
 import Blog from "../../components/Pages/Blog/Blog";
+import CheckOut from "../../components/Pages/CheckOut/CheckOut";
 import DetailsPage from "../../components/Pages/DetailsPage/DetailsPage";
 import ReviewFrom from "../../components/Pages/DetailsPage/ReviewFrom";
 import ErrorPage from "../../components/Pages/ErrorPage/ErrorPage";
@@ -71,6 +72,11 @@ const { createBrowserRouter } = require("react-router-dom");
              {
                  path: '/review',
                  element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>
+                 
+             },
+             {
+                 path: '/checkOut',
+                 element: <CheckOut></CheckOut>
                  
              }
         ]
