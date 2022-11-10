@@ -4,6 +4,8 @@ import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Review from './Review';
 import useTitle from '../../../Hooks/useTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const DetailsPage = () => {
     window.scrollTo(0, 0);
@@ -18,7 +20,13 @@ const DetailsPage = () => {
         <div className='w-11/12 mx-auto'>
             <div className=" grid md:grid-cols-2  gap-7 mt-10 mb-8">
                 <div >
-                    <img src={img} className="md:w-11/12 rounded-lg h-80" alt="" />
+                    
+                   
+                    <PhotoProvider>
+                        <PhotoView src={img}>
+                            <img src={img} className="md:w-11/12 rounded-lg h-80" alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
 
                 </div>
                 <div>

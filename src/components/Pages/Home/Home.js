@@ -6,6 +6,7 @@ import Information from './Information';
 import Services from './Services';
 import Slider from './Slider';
 
+
 const Home = () => {
     useTitle('Home');
     

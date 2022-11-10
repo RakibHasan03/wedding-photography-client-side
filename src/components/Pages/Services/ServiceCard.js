@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceCard = ({ service }) => {
     window.scrollTo(0, 0);
@@ -11,7 +13,12 @@ const ServiceCard = ({ service }) => {
             <div className="lg:w-11/12  h-[30rem] mx-auto rounded-lg bg-gray-200 shadow-lg dark:border-gray-700 my-3" >
 
                 <div className='p-4'>
-                    <img className=" rounded-lg h-56 w-full" src={img} alt="" />
+                    
+                    <PhotoProvider>
+                        <PhotoView src={img}>
+                            <img className=" rounded-lg h-56 w-full" src={img} alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
                 </div>
 
                 <div className="px-5 pb-5">

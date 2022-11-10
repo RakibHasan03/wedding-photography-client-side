@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SingleService from './SingleService';
 import { FaArrowRight } from 'react-icons/fa';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Services = ({ threeServices }) => {
     return (
@@ -15,6 +16,7 @@ const Services = ({ threeServices }) => {
                         service={service}
                     ></SingleService>)
                 }
+                
             </div>
             <div className='flex justify-center'>
                 <Link to='/services'>
