@@ -59,12 +59,13 @@ const { createBrowserRouter } = require("react-router-dom");
                  path: '/update/:id',
                  loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`),
                  element:<ReviewUpdate></ReviewUpdate>
-             }
-            //  {
-            //      path: '/review',
-            //      element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>
+             },
+             
+             {
+                 path: '/review',
+                 element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>
                  
-            //  }
+             }
         ]
         
     }

@@ -2,7 +2,7 @@ import React, { useContext} from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import toast from 'react-hot-toast';
 
-const ReviewFrom = ({ service }) => {
+const ReviewFrom = ({service}) => {
     const { name, _id } = service
     // console.log(service)
     const { user} = useContext(AuthContext);
@@ -50,15 +50,15 @@ const ReviewFrom = ({ service }) => {
     };
     // console.log(reviews)
 
-    
+
 
     return (
         <div>
-           
+            
             <div className='mt-5'>
                 <h1 className='text-sky-600 text-2xl font-semibold text-center'>Give A review</h1>
                 
-                <form onSubmit={handleReview} className="w-11/12 mx-auto">
+                <form onSubmit={handleReview}  className="w-11/12 mx-auto">
                     <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-sky-600 text-md font-semibold mb-2">
