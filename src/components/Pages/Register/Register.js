@@ -9,7 +9,6 @@ import toast from 'react-hot-toast';
 const Register = () => {
     useTitle('Register')
     const [error, setError] = useState("")
-    const [accepted, setAccepted] = useState(false)
      const navigate = useNavigate()
     
     const { createAccount, updateUserProfile } = useContext(AuthContext)
@@ -28,8 +27,32 @@ const Register = () => {
                 form.reset()
                 setError('')
                 handelUpdateProfile(name, photoURL)
-                 toast.success('You are SuccessFully Sign Up');
-                 navigate('/')
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+
+                        localStorage.setItem('wedding-ph', data.token);
+                        form.reset()
+                        toast.success('Login SuccessFully')
+                        navigate('/')
+
+
+                    });
+                
 
             })
             .catch(error => {
