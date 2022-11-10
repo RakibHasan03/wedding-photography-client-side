@@ -29,15 +29,39 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                form.reset()
                 setError('')
-                toast.success('Login SuccessFully')
-                navigate( from , { replace: true })
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+
+                        localStorage.setItem('wedding-ph', data.token);
+                        form.reset()
+                        toast.success('Login SuccessFully')
+                        navigate(from, { replace: true });
+                       
+                        
+                    });
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
-            })  
+            })
     }
     const googleHandler = () => {
         providerLogin(googleProvider)
@@ -45,8 +69,36 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 setError('')
-                toast.success('Login SuccessFully')
-                 navigate(from, { replace: true })
+                
+
+                //get jwt token
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+
+                        localStorage.setItem('wedding-ph', data.token);
+                        toast.success('Login SuccessFully')
+                        navigate(from, { replace: true });
+                        
+                    });
+
+
+                //gwt end
+                //  navigate(from, { replace: true })
             })
             .then(error => {
                 // console.error(error.message)
@@ -58,14 +110,14 @@ const Login = () => {
 
     return (
         <div className=" grid md:grid-cols-2  w-11/12 mx-auto gap-7 my-12">
-        
-            <div>
-                
-                    <div className='w-11/12 mx-auto'>
-                        <Lottie animationData={reader} loop={true} />
 
-                    </div>
-                
+            <div>
+
+                <div className='w-11/12 mx-auto'>
+                    <Lottie animationData={reader} loop={true} />
+
+                </div>
+
             </div>
             <div>
                 <div className='flex justify-center '>
@@ -98,20 +150,20 @@ const Login = () => {
                                     <div className="flex justify-between">
                                         <label htmlFor="password" className="text-sm">Password</label>
                                     </div>
-                                    <input type="password" name="password" id="password" placeholder="*****" className="w-full px-8 py-2 font-semibold rounded-md bg-white shadow-2xl dark:text-gray-900 placeholder:text-gray-500 focus:outline-none" required/>
+                                    <input type="password" name="password" id="password" placeholder="*****" className="w-full px-8 py-2 font-semibold rounded-md bg-white shadow-2xl dark:text-gray-900 placeholder:text-gray-500 focus:outline-none" required />
                                     <p className='text-red-700 mt-0'>{error}</p>
                                 </div>
                             </div>
-                          
-                            <button  className="w-full px-8 py-3  rounded-md sign-button text-white">Sign in</button>
+
+                            <button className="w-full px-8 py-3  rounded-md sign-button text-white">Sign in</button>
                         </form>
                     </div>
 
                 </div>
             </div>
-            
+
         </div>
-       
+
     );
 };
 
