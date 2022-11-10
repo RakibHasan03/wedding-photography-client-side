@@ -17,9 +17,11 @@ const AllReviews = ({ service }) => {
             .then((data) => {
                 setReviews(data);
                 setRefresh(!refresh);
+                
             });
-    }, [name,refresh]);
-    // console.log(reviews)
+    }, [name, refresh]);
+    console.log(reviews)
+     
     return (
         <div>
             <div className='w-11/12 mx-auto py-3 px-5 md:px-0'>

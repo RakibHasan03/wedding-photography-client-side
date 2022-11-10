@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import About from './About';
 import Information from './Information';
@@ -7,7 +7,10 @@ import Slider from './Slider';
 
 const Home = () => {
 
-    const threeServices = useLoaderData()
+    
+
+     const threeServices = useLoaderData()
+
     return (
         <div className='w-11/12 mx-auto my-10'>
             <Slider></Slider>

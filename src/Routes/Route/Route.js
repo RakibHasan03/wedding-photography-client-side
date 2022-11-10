@@ -24,6 +24,7 @@ const { createBrowserRouter } = require("react-router-dom");
                  loader: () => fetch('http://localhost:5000/service'),
                  element:<Home></Home>
              },
+            
              {
                  path: '/services',
                  loader: () => fetch('http://localhost:5000/services'),
@@ -37,11 +38,11 @@ const { createBrowserRouter } = require("react-router-dom");
              },
              {
                  path: '/addService',
-                 element: <AddService></AddService>
+                 element: <PrivateRoute> <AddService></AddService></PrivateRoute>
              },
              {
                  path: '/myReview',
-                 element:<MyReview></MyReview>
+                 element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
              },
              {
                  path: '/blog',
@@ -60,7 +61,7 @@ const { createBrowserRouter } = require("react-router-dom");
                  loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`),
                  element:<ReviewUpdate></ReviewUpdate>
              },
-             
+
              {
                  path: '/review',
                  element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>
