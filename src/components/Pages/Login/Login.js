@@ -6,6 +6,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import './Login.css'
 import useTitle from '../../../Hooks/useTitle';
+import toast from 'react-hot-toast';
 
 
 
@@ -30,7 +31,8 @@ const Login = () => {
                 console.log(user)
                 form.reset()
                 setError('')
-                navigate(from, { replace: true })
+                toast.success('Login SuccessFully')
+                navigate( from , { replace: true })
             })
             .catch(error => {
                 console.error(error)
@@ -43,6 +45,7 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 setError('')
+                toast.success('Login SuccessFully')
                  navigate(from, { replace: true })
             })
             .then(error => {

@@ -4,6 +4,7 @@ import Lottie from 'lottie-react'
 import reader from '../../../Asset/Images/38435-register.json'
 import { AuthContext } from '../../../Context/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     useTitle('Register')
@@ -27,7 +28,7 @@ const Register = () => {
                 form.reset()
                 setError('')
                 handelUpdateProfile(name, photoURL)
-                //  toast.success('You are SuccessFully Sign Up');
+                 toast.success('You are SuccessFully Sign Up');
                  navigate('/')
 
             })
