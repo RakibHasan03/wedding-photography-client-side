@@ -6,7 +6,6 @@ import ReviewFrom from './ReviewFrom';
 
 
 const AllReviews = ({ service }) => {
-  
     const {user} = useContext(AuthContext)
     const {  name } = service
     const [reviews, setReviews] = useState([])

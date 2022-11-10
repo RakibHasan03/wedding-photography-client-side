@@ -16,7 +16,7 @@ const DetailsPage = () => {
     const { name, img, description, price, rating, _id } = service
     return (
         <div className='w-11/12 mx-auto'>
-            <div className=" grid md:grid-cols-2  gap-7 mt-5 mb-8">
+            <div className=" grid md:grid-cols-2  gap-7 mt-10 mb-8">
                 <div >
                     <img src={img} className="md:w-11/12 rounded-lg h-80" alt="" />
 
@@ -38,9 +38,12 @@ const DetailsPage = () => {
 
                     <p className=' text-xl text-sky-600  mt-6 font-semibold'> Price: $ {price}</p>
                     <div className='flex gap-12 mt-5 text-white'>
-                        <button className='gradient-button px-4 py-2 rounded-md'>
-                            Booking Now
-                        </button>
+                        <Link to='/checkOut'>
+                            <button className='gradient-button px-4 py-2 rounded-md'>
+                                Booking Now
+                            </button>
+                        </Link>
+                       
                         <Link to='/services'>
                             <button className='gradient-button px-4 py-2 rounded-md'>
                                 All Services
