@@ -1,8 +1,10 @@
 import React from 'react';
+import useTitle from '../../../Hooks/useTitle';
 
 const Blog = () => {
+    useTitle('Blog');
     return (
-        <div>
+        <div className='min-h-screen'>
             <section className="dark:bg-sky-500 dark:text-gray-100 w-11/12 mx-auto mt-12 rounded-lg">
                 <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
                     <h2 className="text-2xl font-semibold sm:text-4xl text-center mb-3">Question To Answer Section</h2>

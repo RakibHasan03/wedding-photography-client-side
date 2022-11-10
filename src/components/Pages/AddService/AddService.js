@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Hooks/useTitle';
 
 const AddService = () => {
+    useTitle('AddService');
     window.scrollTo(0, 0);
     const [service, setService] = useState({});
      const handelUpdate = (event) => {

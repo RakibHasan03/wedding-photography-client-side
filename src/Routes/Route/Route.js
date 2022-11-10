@@ -2,6 +2,7 @@ import AddService from "../../components/Pages/AddService/AddService";
 import Blog from "../../components/Pages/Blog/Blog";
 import DetailsPage from "../../components/Pages/DetailsPage/DetailsPage";
 import ReviewFrom from "../../components/Pages/DetailsPage/ReviewFrom";
+import ErrorPage from "../../components/Pages/ErrorPage/ErrorPage";
 import Home from "../../components/Pages/Home/Home";
 import Login from "../../components/Pages/Login/Login";
 import MyReview from "../../components/Pages/MyReview/MyReview";
@@ -17,7 +18,7 @@ const { createBrowserRouter } = require("react-router-dom");
     {
          path: '/',
          element: <Main></Main>,
-         errorElement: <h1>404 not found</h1>,
+         errorElement:<ErrorPage></ErrorPage>,
          children: [
              {
                  path: '/',

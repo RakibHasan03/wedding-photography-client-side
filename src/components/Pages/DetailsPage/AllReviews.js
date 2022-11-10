@@ -6,8 +6,9 @@ import ReviewFrom from './ReviewFrom';
 
 
 const AllReviews = ({ service }) => {
+  
     const {user} = useContext(AuthContext)
-    const { rating, name } = service
+    const {  name } = service
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(true)
     useEffect(() => {

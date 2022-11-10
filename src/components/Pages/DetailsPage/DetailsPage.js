@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Review from './Review';
+import useTitle from '../../../Hooks/useTitle';
 
 const DetailsPage = () => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
+    useTitle('DetailsPage');
 
     const service = useLoaderData();
     const { user } = useContext(AuthContext)
@@ -39,9 +41,11 @@ const DetailsPage = () => {
                         <button className='gradient-button px-4 py-2 rounded-md'>
                             Booking Now
                         </button>
-                        <button className='gradient-button px-4 py-2 rounded-md'>
-                            All Services
-                        </button>
+                        <Link to='/services'>
+                            <button className='gradient-button px-4 py-2 rounded-md'>
+                                All Services
+                            </button>
+                        </Link>
                     </div>
 
                 </div>
