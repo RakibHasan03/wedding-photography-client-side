@@ -47,9 +47,11 @@ const AllReviews = ({ service }) => {
                     :
                     <>
                         <Link to='/login'>
-                            <button className='gradient-button px-4 py-3 rounded-md text-white ml-10'>
-                                For Review Please Login
-                            </button>
+                            <div className='w-11/12 mx-auto'>
+                                <button className='gradient-button px-4 py-3 rounded-md text-white text-lg'>
+                                    For Review Please Login
+                                </button>
+                            </div>
                         </Link>
                     </>
             }
