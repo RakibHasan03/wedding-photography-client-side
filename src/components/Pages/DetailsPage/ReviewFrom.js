@@ -70,7 +70,8 @@ const ReviewFrom = ({service}) => {
                                 name="rating"
                                 className="w-full py-4 px-8 bg-blue-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg"
                             >
-                                <option value="1">1</option>
+                               
+                                <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>

@@ -9,6 +9,7 @@ const MyReview = () => {
     useTitle('My Review');
     const { user, logOut } = useContext(AuthContext)
     const [myReviews, setMyReviews] = useState([])
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch(`https://server-site-alpha.vercel.app/myReview?email=${user?.email}`, {
             headers: {
@@ -21,12 +22,16 @@ const MyReview = () => {
                 }
                 return res.json();
             })
-        .then(data=>setMyReviews(data))
+            .then(data => {
+                setLoading(false)
+                setMyReviews(data)
+                
+        })
 
     }, [user?.email,logOut])
     // console.log(myReviews)
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure, you want to cancel this order');
+        const proceed = window.confirm('Are you sure..!, you want to delete this review');
         if (proceed) {
             fetch(`https://server-site-alpha.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
@@ -44,10 +49,18 @@ const MyReview = () => {
     return (
         <div className='my-10 min-h-screen'>
             {
-                myReviews?.length <= 0 ? <>
+                loading && <div className="flex items-center justify-center space-x-2 my-5">
+                    <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                    <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                    <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                </div>
+            }
+            {
+                
+                myReviews?.length <= 0 && loading === false ? <>
                     <h1 className='text-sky-700 text-center text-2xl font-semibold'>
                         You Don't Have Review yet..!! <br />
-                        please go to details page and <br />
+                        please chose your service <br />
                         Give a Review
                         <div className='mt-5 text-center'>
                             <Link to='/services'>

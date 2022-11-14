@@ -3,10 +3,11 @@ import { FaStar} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const MyReviewCard = ({ review, handleDelete }) => {
-    const { userName, userImg, message ,rating,_id} = review
+    const { userName, userImg, message, rating, _id, serviceName } = review
     return (
         <div className='w-11/12 mx-auto'>
-            <div className='mt-5 text-sky-700 my-5 border-2 rounded p-5  border-sky-500'>
+            <div className='mt-5 text-sky-700 my-8 border-2 rounded p-5  border-gray-400 bg-gray-200 shadow-lg'>
+                
                 <div className='flex items-center gap-8'>
                     <div>
                         <img src={userImg} className='w-12 h-12 rounded-full' alt="" />
@@ -15,8 +16,12 @@ const MyReviewCard = ({ review, handleDelete }) => {
                         <h1>{userName}</h1>
                     </div>
                 </div>
-                <div className='flex items-center gap-8 mt-3'>
+                <div>
+                    <h1 className='text-sky-700 text-lg my-3'>Review Of: <span className='text-lg text-blue-900'>{serviceName}</span></h1>
+                </div>
+                <div className='flex items-center gap-8 '>
                     <div className='flex '>
+                       
                         <FaStar /><FaStar /><FaStar /><FaStar />
                     </div>
                     <div>
@@ -27,14 +32,15 @@ const MyReviewCard = ({ review, handleDelete }) => {
                 <div className='flex items-center gap-8 text-white mt-5'>
                     <div >
 
-                        <button onClick={()=>handleDelete(_id)} className='bg-red-500 hover:bg-red-800 px-5 py-2 rounded-md'>
+                        <button onClick={() => handleDelete(_id)} className='bg-gradient-to-r from-red-400 to-pink-600 px-5 
+                          py-2 rounded-md'>
                             Delete
                         </button>
 
                     </div>
                     <div>
                         <Link to={`/update/${_id}`}>
-                            <button className='bg-blue-500  hover:bg-blue-800 px-5 py-2 rounded-md'>
+                            <button className='gradient-button px-5 py-2 rounded-md'>
                                 Update
                             </button>
                             

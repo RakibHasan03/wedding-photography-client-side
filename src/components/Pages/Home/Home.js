@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle';
 import About from './About';
 import Information from './Information';
@@ -11,13 +10,26 @@ const Home = () => {
     useTitle('Home');
     
 
-     const threeServices = useLoaderData()
+    const [threeServices, setServices] = useState([])
+  
+    
+    useEffect(() => {
+        fetch('https://server-site-alpha.vercel.app/service')
+            .then(res => res.json())
+            .then(data => {
+                setServices(data)
+                
+        })
+    },[])
 
     return (
         <div className='w-11/12 mx-auto my-10'>
+           
             <Slider></Slider>
             <Services
                 threeServices={threeServices}
+                
+
             
             ></Services>
             <Information></Information>

@@ -23,12 +23,12 @@ const { createBrowserRouter } = require("react-router-dom");
          children: [
              {
                  path: '/',
-                 loader: () => fetch('https://server-site-alpha.vercel.app/service'),
+                //  loader: () => fetch('https://server-site-alpha.vercel.app/service'),
                  element:<Home></Home>
              },
              {
                  path: '/home',
-                 loader: () => fetch('https://server-site-alpha.vercel.app/service'),
+                //  loader: () => fetch('https://server-site-alpha.vercel.app/service'),
                  element:<Home></Home>
              },
             

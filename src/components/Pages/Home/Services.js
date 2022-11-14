@@ -4,7 +4,7 @@ import SingleService from './SingleService';
 import { FaArrowRight } from 'react-icons/fa';
 import 'react-photo-view/dist/react-photo-view.css';
 
-const Services = ({ threeServices }) => {
+const Services = ({ threeServices}) => {
     return (
         <div className='mt-12'>
             <h1 className='text-center text-4xl font-semibold text-gray-700'>My Photography Services</h1>

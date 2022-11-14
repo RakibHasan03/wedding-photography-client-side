@@ -5,10 +5,24 @@ import useTitle from '../../../Hooks/useTitle';
 const AddService = () => {
     useTitle('AddService');
     window.scrollTo(0, 0);
-    const [service, setService] = useState({});
      const handelUpdate = (event) => {
         event.preventDefault();
-        const form = event.target;
+         const form = event.target;
+         
+        const name = form.name.value;
+        const img = form.img.value;
+        const price =form.price.value;
+         const rating = form.rating.value;
+       const description =  form.description.value;
+        const service = {
+            name,
+            img,
+            price,
+            rating,
+            description
+            
+        }
+         
         // form.reset()
         console.log(service)
 
@@ -36,15 +50,6 @@ const AddService = () => {
     
     
 
-    const handelInputBlur = event => {
-        const value = event.target.value;
-        const field = event.target.name;
-        const newService = { ...service }
-        newService[field] = value
-        setService(newService)
-         console.log(service)
-
-    }
 
     return (
         <div>
@@ -57,28 +62,26 @@ const AddService = () => {
                         <h1 className="text-center text-2xl font-bold text-gray-600 mb-6">Add A Service</h1>
                       
                         <div className="w-3/4 mb-6">
-                            <input   onChange={ handelInputBlur } type="text" name="name"  className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg" placeholder="Service Name" required/>
+                            <input type="text" name="name"  className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg" placeholder="Service Name" required/>
                         </div>
                        
                         <div className="w-3/4 mb-6">
-                            <input onChange={handelInputBlur} type="text" name="img" className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg " placeholder="Photo Url" required/>
+                            <input  type="text" name="img" className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg " placeholder="Photo Url" required/>
                         </div>
                         
                         <div className="w-3/4 mb-6">
-                            <input onChange={handelInputBlur} type="number" name="price" className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg " placeholder="price" required/>
+                            <input  type="number" name="price" className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg " placeholder="price" required/>
                         </div>
                         
                         <div className="w-3/4 mb-6">
                             <label className='text-gray-400'>Rating</label>
                             <select
-                                onChange={handelInputBlur} 
+                                
                                 name="rating"
-                                placeholder='rating'
-                                className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg "
+                                className="w-full py-4 px-8  bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 shadow-lg"
                             >
-                               
 
-                                <option  value="1">1</option>
+                                <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -90,7 +93,7 @@ const AddService = () => {
                             </select>
                         </div>
                         <div className="w-3/4 mb-6">
-                            <textarea onChange={handelInputBlur} 
+                            <textarea
                                 rows="4"
                                 name="description"
                                 id="message"
