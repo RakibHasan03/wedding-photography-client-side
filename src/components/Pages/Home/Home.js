@@ -8,6 +8,7 @@ import Slider from './Slider';
 
 const Home = () => {
     useTitle('Home');
+    window.scrollTo(0, 0);
     
 
     const [threeServices, setServices] = useState([])
