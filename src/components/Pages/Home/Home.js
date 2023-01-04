@@ -15,7 +15,7 @@ const Home = () => {
   
     
     useEffect(() => {
-        fetch('https://server-site-alpha.vercel.app/service')
+        fetch('http://localhost:5000/service')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
@@ -24,7 +24,7 @@ const Home = () => {
     },[])
 
     return (
-        <div className='w-11/12 mx-auto my-10'>
+        <div className='w-11/12 mx-auto mt-5 mb-10'>
            
             <Slider></Slider>
             <Services

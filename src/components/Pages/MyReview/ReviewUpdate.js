@@ -14,7 +14,7 @@ const ReviewUpdate = () => {
         // const form = event.target;
         // form.reset()
       
-        fetch(`https://server-site-alpha.vercel.app/myReview/${_id}`, {
+        fetch(`http://localhost:5000/myReview/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

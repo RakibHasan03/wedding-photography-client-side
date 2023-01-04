@@ -1,3 +1,4 @@
+import Cart from "../../components/Cart/Cart";
 import AddService from "../../components/Pages/AddService/AddService";
 import Blog from "../../components/Pages/Blog/Blog";
 import CheckOut from "../../components/Pages/CheckOut/CheckOut";
@@ -23,25 +24,25 @@ const { createBrowserRouter } = require("react-router-dom");
          children: [
              {
                  path: '/',
-                //  loader: () => fetch('https://server-site-alpha.vercel.app/service'),
+                //  loader: () => fetch('http://localhost:5000/service'),
                  element:<Home></Home>
              },
              {
                  path: '/home',
-                //  loader: () => fetch('https://server-site-alpha.vercel.app/service'),
+                //  loader: () => fetch('http://localhost:5000/service'),
                  element:<Home></Home>
              },
             
              {
                  path: '/services',
-                 loader: () => fetch('https://server-site-alpha.vercel.app/services'),
+                //  loader: () => fetch('http://localhost:5000/services'),
                  element: <Services></Services>
                 
              },
              {
                  path: '/service/:id',
-                 loader: ({ params }) => fetch(`https://server-site-alpha.vercel.app/services/${params.id}`),
-                 element:<DetailsPage></DetailsPage>
+                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                 element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
              },
              {
                  path: '/addService',
@@ -65,7 +66,7 @@ const { createBrowserRouter } = require("react-router-dom");
              },
              {
                  path: '/update/:id',
-                 loader: ({ params }) => fetch(`https://server-site-alpha.vercel.app/myReview/${params.id}`),
+                 loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`),
                  element: <PrivateRoute><ReviewUpdate></ReviewUpdate></PrivateRoute>
              },
 
@@ -73,6 +74,10 @@ const { createBrowserRouter } = require("react-router-dom");
                  path: '/review',
                  element:<PrivateRoute><ReviewFrom></ReviewFrom></PrivateRoute>
                  
+             },
+             {
+                 path: '/cart',
+                 element: <PrivateRoute><Cart></Cart></PrivateRoute>
              },
              {
                  path: '/checkOut',

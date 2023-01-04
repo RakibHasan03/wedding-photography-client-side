@@ -2,7 +2,7 @@ import React, { useContext} from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import toast from 'react-hot-toast';
 
-const ReviewFrom = ({service}) => {
+const ReviewFrom = ({service, refetch}) => {
     const { name, _id } = service
     // console.log(service)
     const { user} = useContext(AuthContext);
@@ -29,7 +29,7 @@ const ReviewFrom = ({service}) => {
       
         // console.log(typeof(rating));
 
-        fetch('https://server-site-alpha.vercel.app/review', {
+        fetch('http://localhost:5000/review', {
             method: "POST",
             headers: {
             "content-type": "application/json",
@@ -44,6 +44,7 @@ const ReviewFrom = ({service}) => {
         if (data.acknowledged) {
             toast.success("Review Added Successfully");
             form.reset();
+            refetch()
         }
     })
     .catch((err) => console.error(err));

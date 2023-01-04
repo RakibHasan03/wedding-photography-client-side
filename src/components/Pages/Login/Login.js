@@ -39,7 +39,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('https://server-site-alpha.vercel.app/jwt', {
+                fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -79,7 +79,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('https://server-site-alpha.vercel.app/jwt', {
+                fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -114,19 +114,7 @@ const Login = () => {
             <div>
 
                 <div className='w-11/12 mx-auto'>
-                    {
-                        () => {
-                            if (loading) {
-                                return (
-                                    <div className="flex items-center justify-center space-x-2">
-                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
-                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
-                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
-                                    </div>
-                                )
-                            }
-                        }
-                   }
+               
                     <Lottie animationData={reader} loop={true} />
 
                 </div>

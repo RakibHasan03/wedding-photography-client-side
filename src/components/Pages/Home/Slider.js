@@ -4,27 +4,26 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Pagination, Navigation, Autoplay } from "swiper";
+import { Pagination,  Autoplay } from "swiper";
 import { Link } from "react-router-dom";
 export default function Slider() {
     return (
         <>
             <Swiper
                 pagination={{
-                    type: "progressbar",
+                    
                 }}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
                 loop={true}
-                navigation={true}
-                modules={[Autoplay,Pagination, Navigation]}
+                modules={[Autoplay,Pagination]}
                 className="mySwiper"
             >
                 <SwiperSlide>
                     <div
-                        className="lg:h-[500px] bg-cover bg-center bg-no-repeat text-white rounded-xl "
+                        className="lg:h-[500px] h-[230px]  bg-cover bg-center bg-no-repeat text-white rounded-xl "
                         style={{
                             backgroundImage: `url(${"https://images.pexels.com/photos/2892199/pexels-photo-2892199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"})`,
                         }}
@@ -37,7 +36,7 @@ export default function Slider() {
                                     Make Your Wedding
                                     <br />A Successful Story
                                 </h1>
-                                <p className="py-3 text-sm md:text-xl md:w-3/6 ">
+                                <p className="py-3 hidden md:block text-sm md:text-xl md:w-3/6 ">
 
                                     Because every picture should be unique, Making your special day.We will make a wonderful story
                                 </p>

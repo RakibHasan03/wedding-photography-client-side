@@ -24,9 +24,9 @@
 
 # API
 
- [All Services](https://server-site-alpha.vercel.app/services)
+ [All Services](http://localhost:5000/services)
 
- [ Service By Id](https://server-site-alpha.vercel.app/services/${id})
+ [ Service By Id](http://localhost:5000/services/${id})
 
 
 

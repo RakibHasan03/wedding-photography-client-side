@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import ReviewCard from './ReviewCard';
@@ -8,19 +9,31 @@ import ReviewFrom from './ReviewFrom';
 const AllReviews = ({ service }) => {
     const {user} = useContext(AuthContext)
     const {  name } = service
-    const [reviews, setReviews] = useState([])
-    const [refresh, setRefresh] = useState(true)
-    useEffect(() => {
-        const url = `https://server-site-alpha.vercel.app/reviews?serviceName=${name}`;
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setReviews(data);
-                setRefresh(!refresh);
+    // const [reviews, setReviews] = useState([])
+    // const [refresh, setRefresh] = useState(true)
+    // useEffect(() => {
+    //     const url = `http://localhost:5000/reviews?serviceName=${name}`;
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setReviews(data);
+    //             setRefresh(!refresh);
                 
-            });
-    }, [name, refresh]);
-    console.log(reviews)
+    //         });
+    // }, [name, refresh]);
+    // // console.log(reviews)
+
+    const url = `http://localhost:5000/reviews?serviceName=${name}`;
+
+    const { data: reviews = [], isLoading, refetch } = useQuery({
+        queryKey: ['serviceName',],
+        queryFn: async () => {
+            const res = await fetch(url);
+            const data = await res.json();
+            return data;
+        }
+
+    })
      
     return (
         <div>
@@ -31,7 +44,10 @@ const AllReviews = ({ service }) => {
                     reviews.map(review => <ReviewCard
                         key={review._id}
                         review={review}
-                    service={service}></ReviewCard>)
+                        service={service}
+                        
+                    
+                    ></ReviewCard>)
               }
 
                 
@@ -41,7 +57,10 @@ const AllReviews = ({ service }) => {
             {
                 user?.email ?
                     <>
-                        <ReviewFrom service={service} ></ReviewFrom>
+                        <ReviewFrom service={service}
+                            refetch={refetch}
+                        
+                        ></ReviewFrom>
                         {/* <p>hello</p> */}
                     </>
                     :
