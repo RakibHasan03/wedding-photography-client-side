@@ -6,6 +6,9 @@
 
 ## This project is Responsive for all kind of devices (`PC, TABLET, MOBILE`).
 
+# Admin Role
+- email: admin@gmail.com
+- password: rakib01767
 
 # InsTallation Packages are: 
 - Start with Npm react app

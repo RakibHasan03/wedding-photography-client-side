@@ -13,6 +13,7 @@ import Register from "../../components/Pages/Register/Register";
 import Services from "../../components/Pages/Services/Services";
 import Main from "../../Layout/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -46,7 +47,7 @@ const { createBrowserRouter } = require("react-router-dom");
              },
              {
                  path: '/addService',
-                 element: <PrivateRoute> <AddService></AddService></PrivateRoute>
+                 element: <AdminRoute><AddService></AddService></AdminRoute>
              },
              {
                  path: '/myReview',

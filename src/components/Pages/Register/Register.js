@@ -46,6 +46,7 @@ const Register = () => {
                         console.log(data);
 
                         localStorage.setItem('wedding-ph', data.token);
+                        saveUser(name, email, photoURL)
                         form.reset()
                         toast.success('Login SuccessFully')
                         navigate('/')
@@ -77,7 +78,22 @@ const Register = () => {
     //     setAccepted(event.target.checked)
 
     // }
+    const saveUser = (name, email, photoUrl, role="user", verify = "false") => {
+        const user = { name, email, photoUrl, role, verify };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log('save-user', data)
 
+
+            })
+    }
     
 
 

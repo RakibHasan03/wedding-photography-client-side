@@ -58,18 +58,17 @@ const MyReview = () => {
             {
                 
                 myReviews?.length <= 0 && loading === false ? <>
-                    <h1 className='text-sky-700 text-center text-2xl font-semibold'>
-                        You Don't Have Review yet..!! <br />
-                        please chose your service <br />
-                        Give a Review
-                        <div className='mt-5 text-center'>
+                    
+                    <div>
+                        <p className='text-sky-700 text-center text-2xl font-semibold'>
+                            You Don't Have Review yet..!! please chose your service & Give a Review </p>
+                        <div className='text-center my-10'>
                             <Link to='/services'>
                                 <button className='gradient-button px-4 py-2 text-white rounded-md text-lg '> Go to Services</button>
                             </Link>
-                            
-                        </div>
-
-                    </h1>
+                       </div>
+                    </div>
+                  
                 </>
                     :
                     <>

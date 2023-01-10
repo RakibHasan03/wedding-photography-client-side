@@ -1,15 +1,17 @@
 import React, {  useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
-import { BsCart4 } from 'react-icons/bs';
+
 import { AuthContext } from '../../../Context/AuthProvider';
 import navLogo from '../../../Asset/Images/wedding-photography.png'
-import { useQuery } from 'react-query';
+import useAdmin from '../../Hooks/UseAdmin';
+
 
 const Header = () => {
     
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext)
+    const [isAdmin] = useAdmin(user?.email)
     const logOutHandler = () => {
         logOut()
             .then(() => {
@@ -20,17 +22,17 @@ const Header = () => {
             })
     }
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    // const url = `http://localhost:5000/bookings?email=${user?.email}`
 
-    const { data: myOrders = [], isLoading } = useQuery({
-        queryKey: ['bookings', user?.email],
-        queryFn: async () => {
-            const res = await fetch(url);
-            const data = await res.json();
-            return data;
-        }
+    // const { data: myOrders = [], isLoading } = useQuery({
+    //     queryKey: ['bookings', user?.email],
+    //     queryFn: async () => {
+    //         const res = await fetch(url);
+    //         const data = await res.json();
+    //         return data;
+    //     }
 
-    })
+    // })
     return (
         <div className="bg-sky-600 sticky top-0 z-50 py-1">
             <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -46,7 +48,7 @@ const Header = () => {
                           Wedding Photography
                         </span>
                     </NavLink>
-                    {/* className="space-y-4" */}
+                  
                     <ul className="flex items-center hidden space-x-6 lg:flex">
                         <li>
                             <NavLink
@@ -84,16 +86,19 @@ const Header = () => {
                             user?.uid ?
                                 <>
                                     
-                                    <li>
-                                        <NavLink
-                                            to='/addService'
-                                            aria-label="addService"
-                                            title="addService"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
-                                        >
-                                            Add Service
-                                        </NavLink>
-                                    </li>
+                                    {
+                                        isAdmin && 
+                                        <li>
+                                            <NavLink
+                                                to='/addService'
+                                                aria-label="addService"
+                                                title="addService"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
+                                            >
+                                                Add Service
+                                            </NavLink>
+                                        </li>
+                                   }
                                     <li>
                                         <NavLink
                                             to='/myReview'
@@ -107,12 +112,11 @@ const Header = () => {
                                     <li>
                                         <NavLink
                                             to='/cart'
-                                            aria-label="myReview"
-                                            title="myReview"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900 text-xl relative"
+                                            aria-label="myOrder"
+                                            title="myOrder"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
                                         >
-                                            <BsCart4  /> <sup className='
-                                            font-semibold absolute -top-0 -right-3 bg-orange-500 rounded-full'>{myOrders.length}</sup>
+                                            My Order
                                         </NavLink>
                                     </li>
                                     <li>
@@ -224,7 +228,8 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <nav>
-                                        <ul className="space-y-4" >
+                                       
+                                        <ul className="space-y-4">
                                             <li>
                                                 <NavLink
                                                     to='/home'
@@ -261,16 +266,7 @@ const Header = () => {
                                                 user?.uid ?
                                                     <>
 
-                                                        <li>
-                                                            <NavLink
-                                                                to='/addService'
-                                                                aria-label="addService"
-                                                                title="addService"
-                                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
-                                                            >
-                                                                Add Service
-                                                            </NavLink>
-                                                        </li>
+                                                    
                                                         <li>
                                                             <NavLink
                                                                 to='/myReview'
@@ -284,14 +280,13 @@ const Header = () => {
                                                         <li>
                                                             <NavLink
                                                                 to='/cart'
-                                                                aria-label="myReview"
-                                                                title="myReview"
+                                                                aria-label="myOrder"
+                                                                title="myOrder"
                                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"
                                                             >
-                                                                <BsCart4 />
+                                                                My Order
                                                             </NavLink>
                                                         </li>
-                                                      
                                                         <li>
                                                             <button onClick={logOutHandler}
                                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-blue-900"> Log Out</button>
